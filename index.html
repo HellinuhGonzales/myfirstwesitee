@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Document Metadata & Mobile Viewport Configuration -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Princess Collene C. Palacio | Personal Portfolio</title>
+
+  <!-- Google Fonts: Playfair Display (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Purple Palette & Typography Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            lavender: {
+              50: '#FAF7FD',
+              100: '#F2EBFA',
+              200: '#E5D7F5',
+              300: '#CFB5EC',
+            },
+            royal: {
+              500: '#8B5CF6',
+              600: '#7C3AED',
+              700: '#6D28D9',
+              800: '#5B21B6',
+              900: '#4C1D95',
+            },
+            plum: {
+              900: '#1F142C',
+              700: '#3E2D54',
+              500: '#6B5884',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Inline Custom Styles for Glassmorphism, Card Hover Depth & Animations -->
+  <style>
+    body {
+      background-color: #FAF7FD;
+      color: #1F142C;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .hero-backdrop {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.14), transparent 50%),
+        radial-gradient(circle at 12% 85%, rgba(139, 92, 246, 0.12), transparent 55%),
+        #FAF7FD;
+    }
+
+    .glass-nav {
+      background: rgba(250, 247, 253, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card-elevate {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+    }
+
+    .card-elevate:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px -14px rgba(91, 33, 182, 0.2);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7FD;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CFB5EC;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7C3AED;
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-royal-600 selection:text-white">
+
+  <!-- Non-blocking Toast Notification (Replaces alert) -->
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-5 right-5 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0 max-w-xs sm:max-w-sm">
+    <div class="bg-plum-900 text-white px-5 py-3.5 rounded-2xl shadow-xl border border-royal-500/40 flex items-center gap-3 text-sm font-medium">
+      <i class="fa-solid fa-circle-check text-lavender-300 text-base flex-shrink-0"></i>
+      <span id="toast-message">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- Full-Screen Photo Lightbox Modal -->
+  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Preview" class="fixed inset-0 z-50 hidden bg-plum-900/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <button type="button" id="lightbox-close" aria-label="Close Preview" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center text-xl transition-colors">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-3xl w-full flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="Expanded memory photo" class="max-h-[75vh] w-auto max-w-full rounded-3xl shadow-2xl border-2 border-white/20 object-contain bg-plum-900" />
+      <p id="lightbox-caption" class="mt-4 text-center text-white font-medium text-base sm:text-lg bg-white/10 px-5 py-2 rounded-full"></p>
+    </div>
+  </div>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-lavender-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Brand Monogram -->
+        <a href="#about" class="flex items-center gap-2.5 group">
+          <span class="w-10 h-10 rounded-2xl bg-gradient-to-br from-royal-600 to-royal-800 text-white font-serif font-bold text-lg flex items-center justify-center shadow-md sh
